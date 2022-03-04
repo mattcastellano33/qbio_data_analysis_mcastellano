@@ -1,0 +1,74 @@
+﻿Matt Castellano 
+
+
+QBIO Public Data Analysis Student Group: 
+Spring 2022 Mid-Semester Project
+
+
+
+
+Part 2: Review Questions
+Attach the answers to the following questions after your References.
+
+
+General Concepts
+1. What is TCGA and why is it important?
+TCGA, or the Cancer Genome Atlas, is a catalog of genetic mutations that are responsible for cancer using genome sequencing and bioinformatics. TCGA researchers have collected a broad range of genomic data of each individual cancer type and have centralized this information. It allows for the exploration of a wide range of genes across a large patient sample that may be otherwise difficult to procure through independent clinical research. 
+2. What are some strengths and weaknesses of TCGA?
+The strengths of TCGA are that it yields a better understanding of the biology and pathology of each tumor, helps develop specific treatment strategies, and includes lots of critical information about each cancer patient. Some of the weaknesses for TCGA are that it does not offer integrated analysis platforms of mRNA and protein-level data and it takes a lot of processing power and time to go through all of the iterations of genomics. 
+3. How does the central dogma of biology (DNA → RNA → protein) relate to the data we are exploring?
+We are exploring gene mutations that cause cancer, which affect the process of DNA to RNA to proteins. Through understanding the central dogma of biology, we can begin to understand how cancer cells begin and how we can use protein structures to come up with therapeutic approaches for cancer. 
+
+
+Coding Skills
+1. What commands are used to save a file to your GitHub repository?
+cd ABSOLUTE PATH 
+git status 
+git add “file.txt”
+git push 
+2. What command must be run in order to use a package in R?
+install.packages(“package”)
+3. What is boolean indexing? What are some applications of it?
+Boolean indexing is a type of indexing which uses actual values of the data in the DataFrame. It is a way of using booleans, binary options of true and false, to organize data into a more digestible data type. The boolean index composes True or False values to correspond with a certain row in the dataset, usually describing and including rows that are marked True. This can help with categorizing patients with a certain gene expression, age range, and sex. 
+4. Draw out a dataframe of your choice. Show an example of the following and explain what each line of code does. 
+
+
+Dataframe
+	
+
+	
+
+	Name
+	Age
+	Senior
+	Matt M
+	81
+	Y
+	Chris R
+	44
+	N
+	Liam L
+	68
+	Y
+	Andrew R
+	35
+	N
+	Jake W
+	59
+	N
+	Simon S
+	72
+	Y
+	
+
+   1. an ifelse() statement
+senior = ifelse(patient$age_at_index >= 65, “True”, “False”) //this line goes through the age_at_index and sets the patient to a True senior if the age is 65 or older and sets the rest to False. // 
+
+
+
+
+   2. boolean indexing
+senior = ifelse(patient$age_at_index >= 65, “True”, “False”) // sets senior to True or False if patient is 65 years old or older 
+senior_NA_age = is.na(patient$age_at_index) // remove patients that are not seniors
+patient = patient[!senior_NA_age, ] // rows
+counts = counts[, !senior_NA_age] // columns
